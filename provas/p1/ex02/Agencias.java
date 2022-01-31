@@ -9,3 +9,4 @@ public class Agencias {
         state = estado;
     }
 }
+// check: get/set
