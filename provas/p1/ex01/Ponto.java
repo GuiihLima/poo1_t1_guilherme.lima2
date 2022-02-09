@@ -13,4 +13,7 @@ public class Ponto {
         y = n;
         //define os pontos no plano
     }
+
+    // check: get/set?
+    // check: o ponto é formado por número real
 }

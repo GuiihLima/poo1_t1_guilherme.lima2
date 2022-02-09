@@ -21,7 +21,7 @@ public class Retangulo {
         int y1 = firstPoint.y;
         int x2 = secondPoint.x;
         int y2 = secondPoint.y;
-        float area = (x2 - x1) * (y2 - y1);
+        float area = (x2 - x1) * (y2 - y1);// check:use Math.abs
         return area;
     }
 
