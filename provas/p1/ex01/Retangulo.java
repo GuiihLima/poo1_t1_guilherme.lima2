@@ -28,15 +28,16 @@ public class Retangulo {
     public static void main(String[] args) {
         Retangulo novoRetangulo = new Retangulo();
         System.out.println("Informe os pontos que definem um retangulo: ");
-        Scanner scanner = new Scanner(System.in);
-        int x1 = scanner.nextInt();
-        int y1 = scanner.nextInt();
-        int x2 = scanner.nextInt();
-        int y2 = scanner.nextInt();
-        if (x1 == y1 && x2 == y2) {
-            novoRetangulo.criaRetangulo(x1, x2);
-        } else {
-            novoRetangulo.criaRetangulo(x1, y1, x2, y2);
+        try (Scanner scanner = new Scanner(System.in)) {
+            int x1 = scanner.nextInt();
+            int y1 = scanner.nextInt();
+            int x2 = scanner.nextInt();
+            int y2 = scanner.nextInt();
+            if (x1 == y1 && x2 == y2) {
+                novoRetangulo.criaRetangulo(x1, x2);
+            } else {
+                novoRetangulo.criaRetangulo(x1, y1, x2, y2);
+            }
         }
         System.out.println("O retangulo tem area igual a: " + novoRetangulo.mostraArea());
     }
