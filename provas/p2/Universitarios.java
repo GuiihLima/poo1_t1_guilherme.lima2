@@ -3,7 +3,6 @@ package p2;
 public abstract class Universitarios extends Pessoa {
     String matricula;
     int cargaHorariaDisciplinas;
-    boolean vacinado = false;
 
     public Universitarios() {
 
