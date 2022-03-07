@@ -1,24 +1,20 @@
-public class EstudanteGrad {
-    String Matricula;
-    String Nome;
-    String CPF;
-    int CargaHorariaDisciplinas;
+package p2;
+
+public class EstudanteGrad extends Universitarios {
     int CargaHorariaComplementar;
     String TituloTCC;
     String LocalEstagio;
 
-    public EstudanteGrad(String cpf, String matricula, String nome) {
-        Nome = nome;
-        Matricula = matricula;
-        CPF = cpf;
-    }
-
-    public int getCargaHorariaDisciplinas() {
-        return CargaHorariaDisciplinas;
+    public EstudanteGrad(String nome, String cpf, String matricula) {
+        super(nome, cpf, matricula);
     }
 
     public void setCargaHorariaDisciplinas(int cargaHorariaDisciplinas) {
-        CargaHorariaDisciplinas = cargaHorariaDisciplinas;
+        if (cargaHorariaDisciplinas > 0 && cargaHorariaDisciplinas <= 3000)
+            super.cargaHorariaDisciplinas = cargaHorariaDisciplinas;
+
+        else
+            throw new InvalidNumException();
     }
 
     public int getCargaHorariaComplementar() {
@@ -26,7 +22,11 @@ public class EstudanteGrad {
     }
 
     public void setCargaHorariaComplementar(int cargaHorariaComplementar) {
-        CargaHorariaComplementar = cargaHorariaComplementar;
+        if (cargaHorariaComplementar > 0 && cargaHorariaComplementar <= 3000)
+            CargaHorariaComplementar = cargaHorariaComplementar;
+
+        else
+            throw new InvalidNumException();
     }
 
     public String getTituloTCC() {
@@ -45,13 +45,27 @@ public class EstudanteGrad {
         LocalEstagio = localEstagio;
     }
 
-    public void informacoesEstudanteGrad(){
-        System.out.println("Nome: " + Nome);
-        System.out.println("CPF: " + CPF);
-        System.out.println("Matricula: " + Matricula );
-        System.out.println("Carga Horária: " +  CargaHorariaDisciplinas);
-        System.out.println("Horas complementares: " +  CargaHorariaComplementar);
-        System.out.println("Local do estágio: " +  CargaHorariaComplementar);
-        System.out.println("Título do TCC: " +  TituloTCC);
+    public String gerarCertificado() {
+        return "Certifico que o " + super.nome + " realiza estágio em " + LocalEstagio;
+    }
+
+    public void informacoesUniversitario() {
+        System.out.println("Nome: " + super.nome);
+        System.out.println("CPF: " + super.cpf);
+        System.out.println("Matricula: " + super.matricula);
+        System.out.println("Carga Horária: " + super.cargaHorariaDisciplinas);
+        System.out.println("Horas complementares: " + CargaHorariaComplementar);
+        System.out.println("Local do estágio: " + CargaHorariaComplementar);
+        System.out.println("Título do TCC: " + TituloTCC);
+    }
+
+    public boolean ehSenior(Senioridade obj) {
+        int cargaHorariaTotal = super.getCargaHorariaDisciplinas() + CargaHorariaComplementar;
+        if (cargaHorariaTotal > ((Universitarios) obj).getCargaHorariaDisciplinas()
+                + ((EstudanteGrad) obj).getCargaHorariaComplementar())
+            return true;
+
+        else
+            return false;
     }
 }

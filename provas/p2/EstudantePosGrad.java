@@ -1,23 +1,11 @@
-public class EstudantePosGrad {
-    String CPF;
-    String Nome;
-    String Matricula;
-    int CargaHorariaDisciplinas;
+package p2;
+
+public class EstudantePosGrad extends Universitarios {
     String Nivel; // doutorado ou mestrado
     String TemaProjetoPesquisa;
 
-    public EstudantePosGrad(String CPF, String matricula, String nome) {
-        this.CPF = CPF;
-        Nome = nome;
-        Matricula = matricula;
-    }
-
-    public int getCargaHorariaDisciplinas() {
-        return CargaHorariaDisciplinas;
-    }
-
-    public void setCargaHorariaDisciplinas(int cargaHorariaDisciplinas) {
-        CargaHorariaDisciplinas = cargaHorariaDisciplinas;
+    public EstudantePosGrad(String nome, String cpf, String matricula) {
+        super(nome, cpf, matricula);
     }
 
     public String getNivel() {
@@ -36,13 +24,24 @@ public class EstudantePosGrad {
         TemaProjetoPesquisa = temaProjetoPesquisa;
     }
 
-    public void informacoesEstudantePos(){
-        System.out.println("Nome: " + Nome);
-        System.out.println("CPF: " + CPF);
-        System.out.println("Matricula: " + Matricula );
-        System.out.println("Carga Horária: " +  CargaHorariaDisciplinas);
-        System.out.println("Nível: " +  Nivel);
-        System.out.println("Tema de pesquisa: " +  TemaProjetoPesquisa);
+    public String gerarCertificado() {
+        return "Certifico que o " + super.nome + " participa do projeto " + TemaProjetoPesquisa;
+    }
+
+    public void informacoesUniversitario() {
+        System.out.println("Nome: " + super.nome);
+        System.out.println("CPF: " + super.cpf);
+        System.out.println("Matricula: " + super.matricula);
+        System.out.println("Carga Horária: " + super.cargaHorariaDisciplinas);
+        System.out.println("Nível: " + Nivel);
+        System.out.println("Tema de pesquisa: " + TemaProjetoPesquisa);
+    }
+
+    public boolean ehSenior(Senioridade obj) {
+        if (this.Nivel == "doutorado" && ((EstudantePosGrad) obj).getNivel() != "doutorado")
+            return true;
+
+        else
+            return false;
     }
 }
-
