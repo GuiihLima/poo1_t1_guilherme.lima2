@@ -1,4 +1,9 @@
 public class Node {
-    protected int data;
-    protected Node nodeNext = null;
+    public int data;
+    public Node nodeNext;
+
+    public Node(int data) {
+        this.data = data;
+        nodeNext = null;
+    }
 }
