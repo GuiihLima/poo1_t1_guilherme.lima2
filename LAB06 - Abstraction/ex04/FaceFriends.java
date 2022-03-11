@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FaceFriends {
-    ArrayList<Contatos> contato = new ArrayList<Contatos>();
+    ArrayList<Contato> contato = new ArrayList<Contato>();
 
     public static void setContato() {
         while (true) {

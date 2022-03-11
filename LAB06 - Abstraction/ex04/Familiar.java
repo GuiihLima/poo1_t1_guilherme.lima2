@@ -1,9 +1,9 @@
 package ex04;
 
-public class Familia extends Contatos {
+public class Familiar extends Contato {
     private String parentesco;
 
-    public Familia(String apelido, String nome, String email, String aniversario, String parentesco) {
+    public Familiar(String apelido, String nome, String email, String aniversario, String parentesco) {
         super(apelido, nome, email, aniversario);
         this.parentesco = parentesco;
     }

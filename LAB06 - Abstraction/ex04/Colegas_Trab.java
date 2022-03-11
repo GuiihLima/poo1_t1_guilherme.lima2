@@ -1,9 +1,9 @@
 package ex04;
 
-public class Trabalho extends Contatos {
+public class Colegas_Trab extends Contato {
     private String tipo;
 
-    public Trabalho(String apelido, String nome, String email, String aniversario, String tipo) {
+    public Colegas_Trab(String apelido, String nome, String email, String aniversario, String tipo) {
         super(apelido, nome, email, aniversario);
         this.tipo = tipo;
     }

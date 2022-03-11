@@ -1,9 +1,9 @@
 package ex04;
 
-public class Amigos extends Contatos {
+public class Amigo extends Contato {
     private int grau; // 1=Melhor amigo 2=Amigo 3=Conhecido
 
-    public Amigos(String apelido, String nome, String email, String aniversario, int grau) {
+    public Amigo(String apelido, String nome, String email, String aniversario, int grau) {
         super(apelido, nome, email, aniversario);
         this.grau = grau;
     }
